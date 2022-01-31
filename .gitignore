@@ -7,6 +7,12 @@ Instructions
 # API config file
 api_keys.py
 
+# API practice file
+API_practice.ipynb
+
+# Random numbers file
+random_numbers.ipynb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
