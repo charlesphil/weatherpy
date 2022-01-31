@@ -1,3 +1,12 @@
+# Instructions folder
+Instructions
+
+# .vscode workspace settings
+.vscode/
+
+# API config file
+api_keys.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
