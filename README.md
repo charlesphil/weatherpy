@@ -4,7 +4,7 @@ Check out the website for this project!
 
 ---
 
-# Python-api-challenge:
+# Python-api-challenge
 
 Contained in this README are three observations from the WeatherPy Notebook and the two
 maps from the VacationPy Notebook.
