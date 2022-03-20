@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wind Speed</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<!--Navigation bar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/images/brandimg.png" alt="WeatherPy Brand Image" width="28" height="28" class="d-inline-block align-text-top">WeatherPy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-nav navbar-center" id="navbarColor03">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../data/main.html">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="comparison.html">Comparison</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="temperature.html">Temperature</a>
+                        <a class="dropdown-item" href="humidity.html">Humidity</a>
+                        <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                        <a class="dropdown-item" href="windspeed.html">Wind Speed
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--Main content-->
+<div id="content" class="container-fluid g-0 g-xl-3 my-xl-5">
+    <div class="row justify-content-center">
+        <div class="col-xl-7">
+            <div class="card border-primary">
+                <div class="card-header border-primary bg-primary">
+                    <h4 class="card-title text-white text-center">Latitude vs. Wind Speed</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-tabs justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#plot">Plot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#regressions">Regressions</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active show" id="plot">
+                            <img src="../assets/images/lat_wind.png" alt="latitude wind speed graph" class="shadow rounded-3 w-75 mx-auto d-block mb-5">
+                        </div>
+                        <div class="tab-pane fade" id="regressions">
+                            <div id="regression-carousel" class="carousel carousel-dark slide border-1" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="../assets/images/north_wind.png" alt="northern hemisphere regression" class="shadow rounded-3 d-inline-block w-75 mb-4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../assets/images/south_wind.png" alt="southern hemisphere regression" class="shadow rounded-3 d-inline-block w-75 mb-4">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#regression-carousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#regression-carousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                                <div class=" carousel-indicators position-relative m-0">
+                                    <button type="button" data-bs-target="#regression-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#regression-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body d-xl-none pt-0">
+                    <h5 class="card-title text-center">Initial Observations</h5>
+                    <p class="card-text">Immediately from the scatter plot, we see a <em>dense</em> linear cluster all along the x-axis between 0 and 10 mph. Even when we separate between northern and southern cities, we see very similar results. What is different between the two halves, however, is that the range of wind speeds in northern cities is much wider, ranging from 0 to 35 mph as opposed to 0 to 25 in the south. Much like cloudiness, wind speed is extremely dependent on atmospheric variables, as opposed to global positions. It would be better to look at wind speed over a period of time to account for the day-to-day differences in wind speed. My initial assumption, however, is that we are unlikely to see any relationship come about from doing so.</p>
+                    <hr>
+                    <h5 class="card-title text-center">Correlation Analysis</h5>
+                    <p class="card-text"><strong>Northern Cities (R-Value: 0.13)</strong></p>
+                    <p class="card-text">There is just simply no trend in the data to be able to reasonably conclude that a city's latitude is related to the wind speed a city experiences. With wind being a phenomenon that occurs due to physical changes in the atmosphere, it would be very unlikely for a city's location to have any affect on the wind speed.</p>
+                    <p class="card-text"><strong>Southern Cities (R-Value: -0.24)</strong></p>
+                    <p class="card-text">There is little to no correlation between northern/southern cities and their wind speed. Although it may look like there is a negative trend just from eyeballing the regression line, it is important to look at the r-value for confirmation. Additionally, it may be entirely possible that the set of values we got from querying the Weather API resulted in a somewhat negatively directional relationship simply from chance. This would require us to look at different correlation coefficients and to check for statistically significant values.</p>
+                </div>
+            </div>
+            <div class="row mt-xl-4">
+                <div class="col-xl-12">
+                    <div class="card border-info">
+                        <div class="card-header border-info bg-info">
+                            <h5 class="card-title text-center text-white">Visualizations</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-6 col-md-3 mb-3 mb-md-0">
+                                    <h6 class="card-text">Temperature</h6>
+                                    <a href="temperature.html"><img src="../assets/images/lat_temp.png" alt="latitude temperature graph" class="img-thumbnail border-2"></a>
+                                </div>
+                                <div class="col-6 col-md-3 mb-3 mb-md-0">
+                                    <h6 class="card-text">Humidity</h6>
+                                    <a href="humidity.html"><img src="../assets/images/lat_humid.png" alt="latitude humidity graph" class="img-thumbnail border-2"></a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <h6 class="card-text">Cloudiness</h6>
+                                    <a href="cloudiness.html"><img src="../assets/images/lat_cloud.png" alt="latitude cloudiness graph" class="img-thumbnail border-2"></a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <h6 class="card-text">Wind Speed</h6>
+                                    <a href="windspeed.html"><img src="../assets/images/lat_wind.png" alt="latitude wind speed graph" class="img-thumbnail border-2"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5 d-none d-xl-block">
+            <div class="card border-secondary">
+                <div class="card-header border-secondary bg-secondary">
+                    <h4 class="card-title text-white text-center">Summary</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Initial Observations</h5>
+                    <p class="card-text">Immediately from the scatter plot, we see a <em>dense</em> linear cluster all along the x-axis between 0 and 10 mph. Even when we separate between northern and southern cities, we see very similar results. What is different between the two halves, however, is that the range of wind speeds in northern cities is much wider, ranging from 0 to 35 mph as opposed to 0 to 25 in the south. Much like cloudiness, wind speed is extremely dependent on atmospheric variables, as opposed to global positions. It would be better to look at wind speed over a period of time to account for the day-to-day differences in wind speed. My initial assumption, however, is that we are unlikely to see any relationship come about from doing so.</p>
+                    <hr>
+                    <h5 class="card-title text-center">Correlation Analysis</h5>
+                    <p class="card-text"><strong>Northern Cities (R-Value: 0.13)</strong></p>
+                    <p class="card-text">There is just simply no trend in the data to be able to reasonably conclude that a city's latitude is related to the wind speed a city experiences. With wind being a phenomenon that occurs due to physical changes in the atmosphere, it would be very unlikely for a city's location to have any affect on the wind speed.</p>
+                    <p class="card-text"><strong>Southern Cities (R-Value: -0.24)</strong></p>
+                    <p class="card-text">There is little to no correlation between northern/southern cities and their wind speed. Although it may look like there is a negative trend just from eyeballing the regression line, it is important to look at the r-value for confirmation. Additionally, it may be entirely possible that the set of values we got from querying the Weather API resulted in a somewhat negatively directional relationship simply from chance. This would require us to look at different correlation coefficients and to check for statistically significant values.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

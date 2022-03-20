@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Humidity</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<!--Navigation bar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/images/brandimg.png" alt="WeatherPy Brand Image" width="28" height="28" class="d-inline-block align-text-top">WeatherPy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-nav navbar-center" id="navbarColor03">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../data/main.html">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="comparison.html">Comparison</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="temperature.html">Temperature</a>
+                        <a class="dropdown-item" href="humidity.html">Humidity
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                        <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                        <a class="dropdown-item" href="windspeed.html">Wind Speed</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--Main content-->
+<div id="content" class="container-fluid g-0 g-xl-3 my-xl-5">
+    <div class="row justify-content-center">
+        <div class="col-xl-7">
+            <div class="card border-primary">
+                <div class="card-header border-primary bg-primary">
+                    <h4 class="card-title text-white text-center">Latitude vs. Humidity</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-tabs justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#plot">Plot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#regressions">Regressions</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active show" id="plot">
+                            <img src="../assets/images/lat_humid.png" alt="latitude humidity graph" class="shadow rounded-3 w-75 mx-auto d-block mb-5">
+                        </div>
+                        <div class="tab-pane fade" id="regressions">
+                            <div id="regression-carousel" class="carousel carousel-dark slide border-1" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="../assets/images/north_humid.png" alt="northern hemisphere regression" class="shadow rounded-3 d-inline-block w-75 mb-4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../assets/images/south_humid.png" alt="southern hemisphere regression" class="shadow rounded-3 d-inline-block w-75 mb-4">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#regression-carousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#regression-carousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                                <div class=" carousel-indicators position-relative m-0">
+                                    <button type="button" data-bs-target="#regression-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#regression-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body d-xl-none pt-0">
+                    <h5 class="card-title text-center">Initial Observations</h5>
+                    <p class="card-text">Most of the data here seem to be clustering around 60 to 100% humidity, regardless of latitude. Both hemispheres had a large number of cities that experienced very high humidities. My initial guess as to why this might be the case is that many cities were experiencing a large amount of precipitation, but I will need to obtain that data in order to confirm if there is any correlation between humidity and precipitation.</p>
+                    <hr>
+                    <h5 class="card-title text-center">Correlation Analysis</h5>
+                    <p class="card-text"><strong>Northern Cities (R-Value: 0.41)</strong></p>
+                    <p class="card-text">We see a weak, positive correlation between cities in the northern hemisphere and their humidity. What is interesting about this plot in particular is that cities below 40 degrees latitude seem to be extremely loose, but cities that lie above 40 degrees latitude seem to be more closely related to their humidity. My initial assumption is that it has to do with it being winter, though I would not be able to know for sure unless I test for it. The more northern a city, the more likely it is that it will be snowing/precipitating, and therefore have higher humidity. However, I would also have expected northern cities in the winter to be colder, and therefore drier, so seeing these results is very unexpected.</p>
+                    <p class="card-text"><strong>Southern Cities (R-Value: 0.43)</strong></p>
+                    <p class="card-text">There is a cluster of cities below -25 degrees latitude where the humidity drops between 20F to 50F. Although the relationship is weak, my initial guess as to why there might be a correlation between southern city latitude and the lower humidity is because of drier weather due to the southern hemisphere's summer season. Whether the season itself is causing this is a question that should be experimentally tested.</p>
+                </div>
+            </div>
+            <div class="row mt-xl-4">
+                <div class="col-xl-12">
+                    <div class="card border-info">
+                        <div class="card-header border-info bg-info">
+                            <h5 class="card-title text-center text-white">Visualizations</h5>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="row">
+                                <div class="col-6 col-md-3 mb-3 mb-md-0">
+                                    <h6 class="card-text">Temperature</h6>
+                                    <a href="temperature.html"><img src="../assets/images/lat_temp.png" alt="latitude temperature graph" class="img-thumbnail border-2"></a>
+                                </div>
+                                <div class="col-6 col-md-3 mb-3 mb-md-0">
+                                    <h6 class="card-text">Humidity</h6>
+                                    <a href="humidity.html"><img src="../assets/images/lat_humid.png" alt="latitude humidity graph" class="img-thumbnail border-2"></a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <h6 class="card-text">Cloudiness</h6>
+                                    <a href="cloudiness.html"><img src="../assets/images/lat_cloud.png" alt="latitude cloudiness graph" class="img-thumbnail border-2"></a>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <h6 class="card-text">Wind Speed</h6>
+                                    <a href="windspeed.html"><img src="../assets/images/lat_wind.png" alt="latitude wind speed graph" class="img-thumbnail border-2"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5 d-none d-xl-block">
+            <div class="card border-secondary">
+                <div class="card-header border-secondary bg-secondary">
+                    <h4 class="card-title text-white text-center">Summary</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Initial Observations</h5>
+                    <p class="card-text">Most of the data here seem to be clustering around 60 to 100% humidity, regardless of latitude. Both hemispheres had a large number of cities that experienced very high humidities. My initial guess as to why this might be the case is that many cities were experiencing a large amount of precipitation, but I will need to obtain that data in order to confirm if there is any correlation between humidity and precipitation.</p>
+                    <hr>
+                    <h5 class="card-title text-center">Correlation Analysis</h5>
+                    <p class="card-text"><strong>Northern Cities (R-Value: 0.41)</strong></p>
+                    <p class="card-text">We see a weak, positive correlation between cities in the northern hemisphere and their humidity. What is interesting about this plot in particular is that cities below 40 degrees latitude seem to be extremely loose, but cities that lie above 40 degrees latitude seem to be more closely related to their humidity. My initial assumption is that it has to do with it being winter, though I would not be able to know for sure unless I test for it. The more northern a city, the more likely it is that it will be snowing/precipitating, and therefore have higher humidity. However, I would also have expected northern cities in the winter to be colder, and therefore drier, so seeing these results is very unexpected. </p>
+                    <p class="card-text"><strong>Southern Cities (R-Value: 0.43)</strong></p>
+                    <p class="card-text">There is a cluster of cities below -25 degrees latitude where the humidity drops between 20F to 50F. Although the relationship is weak, my initial guess as to why there might be a correlation between southern city latitude and the lower humidity is because of drier weather due to the southern hemisphere's summer season. Whether the season itself is causing this is a question that should be experimentally tested.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

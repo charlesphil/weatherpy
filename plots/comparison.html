@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comparison</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<!--Navigation bar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html"><img src="../assets/images/brandimg.png" alt="WeatherPy Brand Image" width="28" height="28" class="d-inline-block align-text-top">WeatherPy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-nav navbar-center" id="navbarColor03">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../data/main.html">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="comparison.html">Comparison
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="temperature.html">Temperature</a>
+                        <a class="dropdown-item" href="humidity.html">Humidity</a>
+                        <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                        <a class="dropdown-item" href="windspeed.html">Wind Speed</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--Main content-->
+<div class="card border-primary my-xl-5 mx-xl-3">
+    <div class="card-header border-primary bg-primary">
+        <h3 class="card-title text-center text-white">Comparison</h3>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <p class="card-text text-center">Please click on the plots for further analysis.</p>
+            <hr>
+        </div>
+        <div class="row text-center justify-content-center">
+            <div class="col-12 col-md-6 mb-3">
+                <h5 class="card-text">Temperature</h5>
+                <a href="../plots/temperature.html"><img src="../assets/images/lat_temp.png" alt="latitude temperature graph" class="img-thumbnail border-2"></a>
+            </div>
+            <hr class="d-md-none">
+            <div class="col-12 col-md-6 mb-3">
+                <h5 class="card-text">Humidity</h5>
+                <a href="../plots/humidity.html"><img src="../assets/images/lat_humid.png" alt="latitude humidity graph" class="img-thumbnail border-2"></a>
+            </div>
+            <hr class="d-md-none">
+            <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <h5 class="card-text">Cloudiness</h5>
+                <a href="../plots/cloudiness.html"><img src="../assets/images/lat_cloud.png" alt="latitude cloudiness graph" class="img-thumbnail border-2"></a>
+            </div>
+            <hr class="d-md-none">
+            <div class="col-12 col-md-6">
+                <h5 class="card-text">Wind Speed</h5>
+                <a href="../plots/windspeed.html"><img src="../assets/images/lat_wind.png" alt="latitude wind speed graph" class="img-thumbnail border-2"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
