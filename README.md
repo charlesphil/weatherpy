@@ -1,7 +1,7 @@
-# Python-api-challenge: Charles Phil Week 6 Homework
+# Python-api-challenge:
 
-Contained in this README are the three observations for WeatherPy and the two
-maps from VacationPy.
+Contained in this README are three observations from the WeatherPy Notebook and the two
+maps from the VacationPy Notebook.
 
 ## Three observations from WeatherPy (Part 1)
 
