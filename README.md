@@ -16,7 +16,7 @@ the relevant cell for each plot in the WeatherPy notebook.
 
 ### Observation 1: latitude and temperature are definitely related.
 
-![Temperature](WeatherPy/output/lat_temp.png))
+![Temperature](WeatherPy/output/lat_temp.png)
 
 Looking at the temperatures plotted against each city's latitude, we see a large
 rise and fall that peaks around the equator. There is such a sharply outlined
