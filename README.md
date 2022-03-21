@@ -1,6 +1,6 @@
 Check out the website for this project!
 
-[Project Page Website](https://charlesphil.github.io/python-api-challenge)
+[Project Page Website](https://charlesphil.github.io/weatherpy)
 
 ---
 
